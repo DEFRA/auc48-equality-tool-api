@@ -1,7 +1,7 @@
 {
-  "name": "cdp-node-backend-no-db-template",
+  "name": "auc48-equality-tool-api",
   "version": "0.0.0",
-  "description": "cdp-node-backend-no-db-template",
+  "description": "auc48-equality-tool-api",
   "main": "src/index.js",
   "type": "module",
   "engines": {

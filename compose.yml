@@ -23,7 +23,7 @@ services:
 
   ################################################################################
 
-  cdp-node-backend-no-db-template:
+  auc48-equality-tool-api:
     build:
       context: .
       target: development
