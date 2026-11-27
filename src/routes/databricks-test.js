@@ -5,6 +5,19 @@ import { config } from '#/config.js'
 
 const { DBSQLClient } = databricks
 
+function getProxyOptions() {
+  const proxyUrl = config.get('httpProxy')
+  if (!proxyUrl) {
+    return undefined
+  }
+  const url = new URL(proxyUrl)
+  return {
+    protocol: url.protocol.replace(':', ''),
+    host: url.hostname,
+    port: Number(url.port) || (url.protocol === 'https:' ? 443 : 80)
+  }
+}
+
 export const databricksTest = {
   method: 'GET',
   path: '/databricks-test',
@@ -14,7 +27,8 @@ export const databricksTest = {
       await client.connect({
         host: config.get('databricks.host'),
         path: config.get('databricks.httpPath'),
-        token: config.get('databricks.token')
+        token: config.get('databricks.token'),
+        proxy: getProxyOptions()
       })
       const session = await client.openSession()
       const op = await session.executeStatement(
