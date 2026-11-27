@@ -39,6 +39,17 @@ export const databricksTest = {
       await session.close()
       return { rows }
     } catch (error) {
+      if (error.response) {
+        const body = await error.response.text().catch(() => '')
+        request.logger.error(
+          {
+            status: error.response.status,
+            headers: Object.fromEntries(error.response.headers),
+            body: body.slice(0, 500)
+          },
+          'Databricks 403 response details'
+        )
+      }
       request.logger.error(error, 'Databricks test failed')
       throw Boom.badGateway('Databricks query failed')
     } finally {
