@@ -9,6 +9,7 @@
   },
   "scripts": {
     "dev": "AWS_EMF_ENVIRONMENT=Local NODE_ENV=development npm run server:watch",
+    "dev:win": "node --env-file-if-exists=.env ./src",
     "dev:debug": "AWS_EMF_ENVIRONMENT=Local NODE_ENV=development npm run server:debug",
     "docker:dev": "npm run dev",
     "format": "prettier --write \"**/*.{cjs,js,json,md}\"",
@@ -30,6 +31,7 @@
   "author": "Defra DDTS",
   "license": "OGL-UK-3.0",
   "dependencies": {
+    "@databricks/sql": "^1.9.0",
     "@defra/cdp-auditing": "0.7.0",
     "@defra/cdp-metrics": "0.6.1",
     "@defra/hapi-secure-context": "0.4.1",

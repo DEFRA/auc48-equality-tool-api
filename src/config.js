@@ -87,6 +87,30 @@ export const config = convict({
       default: 'x-cdp-request-id',
       env: 'TRACING_HEADER'
     }
+  },
+  databricks: {
+    host: {
+      doc: 'Databricks server hostname',
+      format: String,
+      nullable: true,
+      default: null,
+      env: 'DATABRICKS_HOST'
+    },
+    httpPath: {
+      doc: 'Databricks SQL warehouse HTTP path',
+      format: String,
+      nullable: true,
+      default: null,
+      env: 'DATABRICKS_HTTP_PATH'
+    },
+    token: {
+      doc: 'Databricks access token',
+      format: String,
+      nullable: true,
+      default: null,
+      sensitive: true,
+      env: 'DATABRICKS_TOKEN'
+    }
   }
 })
 
