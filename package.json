@@ -9,6 +9,7 @@
   },
   "scripts": {
     "dev": "AWS_EMF_ENVIRONMENT=Local NODE_ENV=development npm run server:watch",
+    "dev:win": "node --env-file-if-exists=.env ./src",
     "dev:debug": "AWS_EMF_ENVIRONMENT=Local NODE_ENV=development npm run server:debug",
     "docker:dev": "npm run dev",
     "format": "prettier --write \"**/*.{cjs,js,json,md}\"",
@@ -41,9 +42,6 @@
     "aws4": "1.13.2",
     "convict": "6.2.5",
     "convict-format-with-validator": "6.2.0",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.21.0",
     "hapi-pino": "13.0.0",
     "hapi-pulse": "4.0.0",
     "joi": "18.2.9",
